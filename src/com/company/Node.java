@@ -1,5 +1,6 @@
 package com.company;
 
+
 public class Node
 {
     Node next = null;
@@ -7,8 +8,14 @@ public class Node
 
     String data;
 
-    public Node(String data)
+    Konto konto;
+
+    public Node(String data, Konto konto)
     {
         this.data = data;
+        this.konto = konto;
     }
+
+
+
 }

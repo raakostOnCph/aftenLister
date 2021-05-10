@@ -41,6 +41,7 @@ public class Liste
 
 
             System.out.println(n.data);
+            System.out.println(n.konto.udskrivKonto());
             n = n.next;
         }
 
@@ -104,8 +105,22 @@ public class Liste
             }
             n = n.next;
         }
-        return new Node("en knude med navn fandtes ikke i listen");
+        return new Node("en knude med navn fandtes ikke i listen", new Konto() );
     }
+
+    public void indsætPåKonto (String cpr, int beløb ) {
+
+        Node n = findKnude(cpr);
+
+        n.konto.indsæt(beløb);
+
+
+
+
+
+
+    }
+
 
     public boolean skiftNavn(String gammel, String ny) {
 
@@ -119,4 +134,56 @@ public class Liste
 
 
     }
-}
+
+    public Node removeFromTail() {
+
+
+
+
+        if(isEmpty() ) {      // listen er tom.
+
+            return new Node("listen er tom", new Konto());
+        }
+
+
+        if (head == tail) {     // listen rummer kun et element
+
+         Node n = head;   // her gemmer jeg en refferance til den ene knude i listen.
+        head = null;
+        tail = null;
+
+        return n;
+
+    }
+
+        Node n = tail;
+
+        tail = tail.previous;
+        tail.next = null;
+
+        return n;
+
+        }
+
+
+
+    public void insertFromTail( Node n) {
+
+        if (isEmpty()) {    // listen var tom
+
+            head = n;
+            tail = n;
+
+        }
+
+        tail.next = n;
+        n.previous = tail;
+
+        tail = tail.next;
+
+
+
+
+    }
+
+    }
