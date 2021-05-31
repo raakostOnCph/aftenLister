@@ -186,4 +186,21 @@ public class Liste
 
     }
 
+    public void printFromTail() {
+
+        Node node = tail;
+
+        while (node != null ) {
+
+            System.out.println(node.data);
+            System.out.println(node.konto.udskrivKonto());
+
+            node = node.previous; // her rykker jeg mig frem i liste til den næste knude
+
+        }
+
+
+    }
+
+
     }

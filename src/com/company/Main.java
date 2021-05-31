@@ -124,7 +124,7 @@ public class Main {
         liste.printFromHead();
 
 
-
+        liste.printFromTail();
 
 
 
